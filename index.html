@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="/static/tinymce/tinymce.min.js"
+    ></script>
+    <link rel="stylesheet" href="static/leafLep/leaflet.css">
+    <script src="static/leafLep/leaflet.js"></script>
+    <script src="static/init_tinymce.js"></script>
+    <link rel="stylesheet" href="static/leafLep/Leaflet.BigImage.css">
+    <script src="static/leafLep/Leaflet.BigImage.js"></script>
+  </head>
+  <body>
+    <textarea id="toolbar-button">
+        <p>Hello world</p>
+    </textarea>
+
+    <div
+      id="map"
+      style="width: 600px; height: 400px; position: relative; outline: none"
+      class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag"
+      tabindex="0"
+    ></div>
+
+    <script>
+      var map = L.map("map").setView([55.753781, 37.62268], 10);
+
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+      L.control.bigImage({position: 'topleft', title: 'Получить изображение', inputScale: 'Выбрать маштаб', dowloadTitle: 'Скачать'}).addTo(map);
+    </script>
+
+  </body>
+</html>
